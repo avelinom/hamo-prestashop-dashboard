@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PR Dashboard - hamo-prestashop</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: Arial, sans-serif; margin: 24px; max-width: 1100px; }
+      h1 { margin-bottom: 4px; }
+      .meta { color: #666; margin-bottom: 16px; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { text-align: left; padding: 10px; border-bottom: 1px solid #ddd; }
+      th { background: #f6f6f6; }
+      .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; }
+      .draft { background: #ffe9a8; }
+      .empty { padding: 12px; background: #f6f6f6; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <h1>PR Dashboard</h1>
+    <div class="meta" id="meta">Cargando...</div>
+    <div id="content"></div>
+    <script>
+      async function load() {
+        const res = await fetch("prs.json", { cache: "no-store" });
+        const data = await res.json();
+        const meta = document.getElementById("meta");
+        meta.textContent = `Repo: ${data.repo} • Actualizado: ${data.generated_at}`;
+        const content = document.getElementById("content");
+        if (!data.prs.length) {
+          content.innerHTML = '<div class="empty">No hay PRs abiertos.</div>';
+          return;
+        }
+        const rows = data.prs.map(pr => `
+          <tr>
+            <td>#${pr.number}</td>
+            <td><a href="${pr.url}" target="_blank" rel="noreferrer">${pr.title}</a></td>
+            <td>${pr.author}</td>
+            <td>${pr.branch} → ${pr.base}</td>
+            <td>${pr.draft ? '<span class="badge draft">Draft</span>' : ''}</td>
+            <td>${new Date(pr.updated_at).toLocaleString()}</td>
+          </tr>
+        `).join("");
+        content.innerHTML = `
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Rama</th>
+                <th>Estado</th>
+                <th>Actualizado</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        `;
+      }
+      load().catch(err => {
+        document.getElementById("content").innerHTML =
+          '<div class="empty">Error cargando el dashboard.</div>';
+        console.error(err);
+      });
+    </script>
+  </body>
+</html>
