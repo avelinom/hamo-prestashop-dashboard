@@ -37,6 +37,8 @@
             <td>#${pr.number}</td>
             <td><a href="${pr.url}" target="_blank" rel="noreferrer">${pr.title}</a></td>
             <td>${pr.author}</td>
+            <td><a href="${pr.preview_url}" target="_blank" rel="noreferrer">Preview</a></td>
+            <td><code>${pr.sha ? pr.sha.slice(0, 7) : ''}</code></td>
             <td>${pr.branch} → ${pr.base}</td>
             <td>${pr.draft ? '<span class="badge draft">Draft</span>' : ''}</td>
             <td>${new Date(pr.updated_at).toLocaleString()}</td>
@@ -49,6 +51,8 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Autor</th>
+                <th>Preview</th>
+                <th>Commit</th>
                 <th>Rama</th>
                 <th>Estado</th>
                 <th>Actualizado</th>
