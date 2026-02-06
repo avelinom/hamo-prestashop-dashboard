@@ -40,7 +40,9 @@
             <td><a href="${pr.preview_url}" target="_blank" rel="noreferrer">Preview</a></td>
             <td><code>${pr.sha ? pr.sha.slice(0, 7) : ''}</code></td>
             <td>${pr.branch} → ${pr.base}</td>
-            <td>${pr.draft ? '<span class="badge draft">Draft</span>' : ''}</td>
+            <td>${pr.review_state || ''}</td>
+            <td>${pr.checks_state || ''}</td>
+            <td>${pr.draft ? '<span class="badge draft">Draft</span>' : 'Ready'}</td>
             <td>${new Date(pr.updated_at).toLocaleString()}</td>
           </tr>
         `).join("");
@@ -54,6 +56,8 @@
                 <th>Preview</th>
                 <th>Commit</th>
                 <th>Rama</th>
+                <th>Review</th>
+                <th>Checks</th>
                 <th>Estado</th>
                 <th>Actualizado</th>
               </tr>
