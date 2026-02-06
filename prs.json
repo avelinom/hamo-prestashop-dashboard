@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-06T23:45:08Z",
+  "generated_at": "2026-02-06T23:55:27Z",
   "repo": "avelinom/hamo-prestashop",
   "prs": [
     {
@@ -9,12 +9,12 @@
       "created_at": "2026-02-06T20:38:39Z",
       "draft": false,
       "number": 2,
-      "sha": "648104b0ff9dc294b67dae0d07353dbebc924f64",
+      "sha": "d2afd6363010fb3b11e163522df8e4e217f0d7ce",
       "title": "chore: test PR for dashboard",
-      "updated_at": "2026-02-06T23:44:24Z",
+      "updated_at": "2026-02-06T23:54:50Z",
       "url": "https://github.com/avelinom/hamo-prestashop/pull/2",
       "preview_url": "https://hamo-prestashop-pr-2.onrender.com",
-      "checks_state": "{\"message\":\"Resource not accessible by integration\",\"documentation_url\":\"https://docs.github.com/rest/commits/statuses#get-the-combined-status-for-a-specific-reference\",\"status\":\"403\"}unknown",
+      "checks_state": "pending",
       "review_state": "commented"
     }
   ]
