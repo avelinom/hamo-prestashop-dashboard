@@ -34,12 +34,16 @@
           content.innerHTML = '<div class="empty">No hay PRs abiertos.</div>';
           return;
         }
-        const rows = data.prs.map(pr => `
+        const previewBase = 'https://hamo-prestashop-pr-';
+        const previewSuffix = '.onrender.com';
+        const rows = data.prs.map(pr => {
+          const previewUrl = previewBase + pr.number + previewSuffix;
+          return `
           <tr>
             <td>#${pr.number}</td>
             <td><a href="${pr.url}" target="_blank" rel="noreferrer">${pr.title}</a></td>
             <td>${pr.author}</td>
-            <td><a href="${pr.preview_url}" target="_blank" rel="noreferrer">Preview</a></td>
+            <td><a href="${previewUrl}" target="_blank" rel="noreferrer" title="${previewUrl}">Preview</a><br><small style="color:#666">${previewUrl.replace(/^https?:\/\//,'')}</small></td>
             <td><code>${pr.sha ? pr.sha.slice(0, 7) : ''}</code></td>
             <td>${pr.branch} → ${pr.base}</td>
             <td>${pr.review_state || ''}</td>
@@ -47,7 +51,8 @@
             <td>${pr.draft ? '<span class="badge draft">Draft</span>' : 'Ready'}</td>
             <td>${new Date(pr.updated_at).toLocaleString()}</td>
           </tr>
-        `).join("");
+        `;
+        }).join("");
         content.innerHTML = `
           <table>
             <thead>
