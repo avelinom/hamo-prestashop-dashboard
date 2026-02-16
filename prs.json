@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-02-16T16:35:33Z",
+  "generated_at": "2026-02-16T17:33:25Z",
   "repo": "avelinom/hamo-prestashop",
   "prs": [
+    {
+      "author": "nicolasmorelldev",
+      "base": "master",
+      "branch": "dev3",
+      "created_at": "2026-02-16T17:19:32Z",
+      "draft": false,
+      "number": 13,
+      "sha": "8b718739505327fb746e6952c5bcfb7d7cf9965a",
+      "title": "feat: combinations page styling",
+      "updated_at": "2026-02-16T17:19:32Z",
+      "url": "https://github.com/avelinom/hamo-prestashop/pull/13",
+      "preview_url": "https://hamo-prestashop-pr-13.onrender.com",
+      "checks_state": "pending",
+      "review_state": "pending"
+    },
     {
       "author": "soymiguelfigueroa",
       "base": "master",
