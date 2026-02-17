@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-17T10:38:59Z",
+  "generated_at": "2026-02-17T11:35:17Z",
   "repo": "avelinom/hamo-prestashop",
   "prs": [
     {
@@ -11,7 +11,7 @@
       "number": 14,
       "sha": "47ab9010c15554144ed970bdc77d5fea8cb34e58",
       "title": "Dev4",
-      "updated_at": "2026-02-17T10:35:58Z",
+      "updated_at": "2026-02-17T10:42:17Z",
       "url": "https://github.com/avelinom/hamo-prestashop/pull/14",
       "preview_url": "https://hamo-prestashop-pr-14.onrender.com",
       "checks_state": "pending",
